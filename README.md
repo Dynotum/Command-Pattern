@@ -27,6 +27,9 @@ The classic version of the Command pattern has the following elements:
 
 The following diagram illustrates all the elements of the pattern and their relations.
 
+![Image of Yaktocat](https://drive.google.com/file/d/1uMVwYqOgA9wT2BuFn-WyVdQixERjP7oY/view?usp=sharing
+)
+
 The Client creates an object of Receiver and a ConcreteCommand and sets up the Invoker to execute the command. Each type
 of ConcreteCommand (e.g. CreateFileCommand, RemoveFileCommand) has a set of fields which represent the params. A command
 calls one or more methods of the Receiver to execute concrete actions to change the state of the application.
