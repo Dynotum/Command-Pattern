@@ -115,6 +115,7 @@ the application you develop.
 
 We will name the invoker class as Controller here.
 
+```java
 public class Controller {
 
     private Command command;
@@ -128,9 +129,11 @@ public class Controller {
     }
 
 }
+```
 
 Finally, our client or the main method will use the invoker to execute the command.
 
+```java
 public class HomeAutomationDemo {
 
     public static void main(String[] args) {
@@ -149,45 +152,48 @@ public class HomeAutomationDemo {
     }
 
 }
+```
 
 It's quite straightforward as to what happens here. Basically, there are three significant steps in the main method.
 
-    Creating an object from the invoker class which is Controller in our application.
-    Creating objects from commands that we are going to execute.
-    Executing commands using invokers.
+1. Creating an object from the invoker class which is Controller in our application.
+2. Creating objects from commands that we are going to execute.
+3. Executing commands using invokers.
 
 There could be other steps that are needed to support these three main steps. For example, this main() method has
 created a Light object because a Light object is needed to pass to create Command objects. When you execute this code,
 the following output will be produced.
 
-Turn on Light Turn off Light
+    Turn on Light 
+    Turn off Light
 
-Additional options
+# Additional options
 
 The Command pattern can be used together with the following options:
 
-    adding commands to a queue to execute them later;
-    supporting undo/redo operations;
-    storing a history of commands;
-    serializing commands to store them on a disk;
-    assembling a set of commands into a single composite command known as macros.
+* adding commands to a queue to execute them later;
+* supporting undo/redo operations;
+* storing a history of commands;
+* serializing commands to store them on a disk;
+* assembling a set of commands into a single composite command known as macros.
 
 These options are not essential to the pattern but are often used in practice.
 
 Sometimes, a command performs all the work by itself instead of invoking the receiver object to do the action. This
-option is somewhat simpler and also used in practice. Applicability
+option is somewhat simpler and also used in practice.
+# Applicability
 
 Possible applications of this pattern include:
 
-    GUI buttons and menu items. In Swing programming, an Action is a command object. In addition to the ability to perform the desired command, an Action may have an associated icon, a keyboard shortcut, tooltip text, and so on.
+* GUI buttons and menu items. In Swing programming, an Action is a command object. In addition to the ability to perform the desired command, an Action may have an associated icon, a keyboard shortcut, tooltip text, and so on.
 
-    Networking. It is possible to send whole command objects across the network to be executed on the other machines: for example, player actions in computer games.
+* Networking. It is possible to send whole command objects across the network to be executed on the other machines: for example, player actions in computer games.
 
-    Transactional behavior. Similar to undo, a database engine or software installer may keep a list of operations that have been or will be performed. Should one of them fail, all others can be reversed or discarded (this is usually called rollback).
+* Transactional behavior. Similar to undo, a database engine or software installer may keep a list of operations that have been or will be performed. Should one of them fail, all others can be reversed or discarded (this is usually called rollback).
 
-    Asynchronous method invocation. In multithreading programming, this pattern makes it possible to run commands asynchronously in the background of an application. In this case, the Invoker is running in the main thread and sends the requests to the Receiver which is running in a separate thread. The invoker will keep a queue of commands and send them to the receiver while it finishes running them.
+* Asynchronous method invocation. In multithreading programming, this pattern makes it possible to run commands asynchronously in the background of an application. In this case, the Invoker is running in the main thread and sends the requests to the Receiver which is running in a separate thread. The invoker will keep a queue of commands and send them to the receiver while it finishes running them.
 
-Conclusion
+# Conclusion
 
 The main advantage of the command pattern is that it decouples the object that invokes the operation from the one that
 knows how to perform it. Various modifications of this pattern can be used to keep a history of requests, implement the
